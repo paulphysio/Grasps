@@ -48,6 +48,12 @@ class contact_form(ModelForm):
             'subject',
             'message',
         ]
+        labels = {
+            'name':'',
+            'email':'',
+            'subject': '',
+            'message': ''
+        }
         widgets = {
             'name': TextInput(attrs={
                 'class':"form-control",
