@@ -288,26 +288,22 @@
             </div>
 
           </div>
-
+          {% if user.is_authenticated %}
           <div class="col-lg-5 col-md-7">
             <form  method="post" role="form" >
-              <div class="form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-              </div>
-              <div class="form-group mt-3">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-              </div>
+              {% csrf_token %}
+              {{contactform|crispy}}
               <br>
               <div class="text-center"><button class="btn btn-success" type="submit">Send Message</button></div>
             </form>
           </div>
-
+          {% else %}
+          <div class="col-lg-5 col-md-7">
+            <h3>
+            Login to send messages
+          </h3>
+          </div>
+          {% endif %}
         </div>
 
       </div>
